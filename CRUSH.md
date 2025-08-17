@@ -21,6 +21,7 @@
 - Initial guidelines added.
 - Clarified branch workflow and emphasis on concise updates.
 - Submodules updated for Q1 Pro work.
+- Removed unsupported encoder_map feature from Q1 Pro and tidied layout macros.
 
 # QMK Keyboard Development Guidelines
 
