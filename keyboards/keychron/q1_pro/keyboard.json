@@ -32,7 +32,7 @@
         ]
     },
     "rgb_matrix": {
-        "driver": "custom",
+        "driver": "snled27351",
         "animations": {
             "breathing": true,
             "band_spiral_val": true,
