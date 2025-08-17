@@ -7,3 +7,5 @@ BLUETOOTH_DRIVER = custom
 DEBOUNCE_TYPE = custom
 
 include keyboards/keychron/common/common.mk
+
+VIA_ENABLE = yes
