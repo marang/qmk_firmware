@@ -15,16 +15,11 @@
         "mousekey": true,
         "extrakey": true,
         "nkro": true,
-        "dip_switch": true,
-        "raw": true,
+        "rgb_matrix": true,
         "encoder": true,
-        "rgb_matrix": true
+        "dip_switch": true
     },
     "diode_direction": "ROW2COL",
-    "matrix_size": {
-        "rows": 6,
-        "cols": 16
-    },
     "matrix_pins": {
         "rows": ["B5", "B4", "B3", "A15", "A14", "A13"],
         "cols": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
