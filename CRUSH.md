@@ -20,6 +20,7 @@
 ## Task Notes
 - Initial guidelines added.
 - Clarified branch workflow and emphasis on concise updates.
+- Submodules updated for Q1 Pro work.
 
 # QMK Keyboard Development Guidelines
 
