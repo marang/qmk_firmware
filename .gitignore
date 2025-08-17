@@ -36,6 +36,7 @@ quantum/version.h
 *.hex
 *.qmk
 *.uf2
+keyboards/keychron/q1_pro/firmware/
 
 # DD config at wrong location
 /keyboards/**/keymaps/*/info.json
