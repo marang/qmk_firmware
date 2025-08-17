@@ -1,1 +1,2 @@
-# This file intentionally blank
+SRC += matrix.c
+

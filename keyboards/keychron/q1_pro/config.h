@@ -16,6 +16,10 @@
 
 #pragma once
 
+/* Key matrix size */
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 16
+
 /* Turn off effects when suspended */
 #define RGB_MATRIX_SLEEP
 
@@ -80,3 +84,4 @@
 #define BL_TEST_KEY2 KC_END
 
 #define INVERT_OS_SWITCH_STATE
+
