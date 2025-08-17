@@ -34,8 +34,10 @@ typedef struct PACKED {
     uint8_t keycode[3];
 } key_combination_t;
 
-static uint32_t factory_timer_buffer = 0;
 static uint32_t siri_timer_buffer    = 0;
+#ifdef KC_BLUETOOTH_ENABLE
+static uint32_t factory_timer_buffer = 0;
+#endif
 static uint8_t  mac_keycode[4]       = {KC_LOPT, KC_ROPT, KC_LCMD, KC_RCMD};
 
 key_combination_t key_comb_list[4] = {
@@ -130,30 +132,12 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-#if defined(ENCODER_ENABLE)
+#if defined(ENCODER_ENABLE) && defined(KC_BLUETOOTH_ENABLE)
 static void encoder0_pad_cb(void *param) {
     // encoder_interrupt_read((uint32_t)param & 0XFF);  // Function doesn't exist in modern QMK
 }
 #endif
 
-#ifdef BLUETOOTH_ENABLE
-static void own_bt_param_init(void) {
-    /* Set bluetooth device name */
-    ckbt51_set_local_name(STR(PRODUCT));
-    wait_ms(10);
-    module_param_t param = {.event_mode             = 0x02,
-                            .connected_idle_timeout = 7200,
-                            .pairing_timeout        = 180,
-                            .pairing_mode           = 0,
-                            .reconnect_timeout      = 5,
-                            .report_rate            = 90,
-                            .vendor_id_source       = 1,
-                            .verndor_id             = 0, // Must be 0x3434
-                            .product_id             = PRODUCT_ID};
-    ckbt51_set_param(&param);
-    wait_ms(10);
-}
-#endif
 
 void keyboard_post_init_kb(void) {
     dip_switch_read(true);
@@ -184,6 +168,7 @@ void keyboard_post_init_kb(void) {
 }
 
 void matrix_scan_kb(void) {
+#ifdef KC_BLUETOOTH_ENABLE
     if (factory_timer_buffer && timer_elapsed32(factory_timer_buffer) > 2000) {
         factory_timer_buffer = 0;
         if (bt_factory_reset) {
@@ -193,6 +178,7 @@ void matrix_scan_kb(void) {
             palWriteLine(CKBT51_RESET_PIN, PAL_HIGH);
         }
     }
+#endif
 
     if (siri_timer_buffer && sync_timer_elapsed32(siri_timer_buffer) > 500) {
         siri_timer_buffer = 0;
