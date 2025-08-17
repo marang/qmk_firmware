@@ -1,6 +1,6 @@
 {
     "usb": {
-    	"pid": "0xA612",
+    	"pid": "0x0612",
     	"device_version": "1.0.0"
     },
     "layouts": {
