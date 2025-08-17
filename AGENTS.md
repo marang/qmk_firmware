@@ -1,8 +1,7 @@
 # AGENTS Instructions
 
-This file collects guidance for future agents working in this repository.
-Always read it before making changes, and append any new information or
-lessons learned after completing tasks.
+Guidance for future agents. Read before working and append concise notes to
+**Task Notes** after each run.
 
 ## Build and Lint
 - Use the `qmk` CLI for all QMK tasks.
@@ -12,14 +11,14 @@ lessons learned after completing tasks.
 - Include the output of these commands in the final report.
 
 ## Git Workflow
-- Work directly on the `master` branch; avoid creating new branches.
+- Create a feature branch for changes and open a PR for review; merge to `master`
+  only after approval.
 - Keep commits focused and ensure the working tree is clean before committing.
 
 ## Maintenance
-- If new conventions or requirements arise, update this `AGENTS.md`
-  with concise notes so future runs benefit from the knowledge.
-- When adding new directories, consider whether a nested `AGENTS.md`
-  would help clarify instructions specific to that scope.
+- Keep this document brief, adding only noteworthy guidance.
+- Add nested `AGENTS.md` files for new directories when useful.
 
 ## Task Notes
 - Initial guidelines added.
+- Clarified branch workflow and emphasis on concise updates.
