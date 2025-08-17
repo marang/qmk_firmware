@@ -23,6 +23,7 @@
 - Submodules updated for Q1 Pro work.
 - Removed unsupported encoder_map feature from Q1 Pro and tidied layout macros.
 - Enabled VIA on Q1 Pro; lint still failing due to keyboard.json location.
+- Removed stray firmware directory from Keychron Q1 Pro and added ignore rule.
 
 # QMK Keyboard Development Guidelines
 
