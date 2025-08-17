@@ -51,7 +51,7 @@
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 
 /* Set LED driver current */
-#    define SNLED27351_CURRENT_TUNE \
+#    define CKLED2001_CURRENT_TUNE \
         { 0x38, 0x38, 0x38, 0x38, 0x38, 0x38, 0x38, 0x38, 0x38, 0x38, 0x38, 0x38 }
 
 #endif

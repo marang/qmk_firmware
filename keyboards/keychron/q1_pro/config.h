@@ -17,7 +17,7 @@
 #pragma once
 
 /* Turn off effects when suspended */
-#define RGB_MATRIX_SLEEP
+#define RGB_DISABLE_WHEN_USB_SUSPENDED
 
 /* DIP switch for Mac/win OS switch */
 #define DIP_SWITCH_PINS { A8 }
@@ -66,8 +66,7 @@
 #endif
 
 /* Emulated EEPROM configuration */
-#define WEAR_LEVELING_LOGICAL_SIZE 2048
-#define WEAR_LEVELING_BACKING_SIZE (WEAR_LEVELING_LOGICAL_SIZE * 2)
+#define FEE_DENSITY_BYTES FEE_PAGE_SIZE
 #define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 2047
 
 /* Encoder Configuration */
