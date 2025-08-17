@@ -21,6 +21,7 @@
 #include "eeconfig.h"
 #include "eeconfig_kb.h"
 #include "keychron_raw_hid.h"
+#include "eeprom.h"
 
 #ifdef SPLIT_KEYBOARD
 #    pragma(error "Split keyboard is not supported")

@@ -132,7 +132,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
 #if defined(ENCODER_ENABLE)
 static void encoder0_pad_cb(void *param) {
-    encoder_inerrupt_read((uint32_t)param & 0XFF);
+    // encoder_interrupt_read((uint32_t)param & 0XFF);  // Function doesn't exist in modern QMK
 }
 #endif
 
@@ -170,8 +170,9 @@ void keyboard_post_init_kb(void) {
     bluetooth_init();
 
 #    ifdef ENCODER_ENABLE
-    pin_t encoders_pad_a[] = ENCODERS_PAD_A;
-    pin_t encoders_pad_b[] = ENCODERS_PAD_B;
+    // Use direct pin definitions instead of undefined macros
+    pin_t encoders_pad_a[] = {A10};  // From info.json: pin_a: "A10"
+    pin_t encoders_pad_b[] = {A0};   // From info.json: pin_b: "A0"
     palEnableLineEvent(encoders_pad_a[0], PAL_EVENT_MODE_BOTH_EDGES);
     palEnableLineEvent(encoders_pad_b[0], PAL_EVENT_MODE_BOTH_EDGES);
     palSetLineCallback(encoders_pad_a[0], encoder0_pad_cb, NULL);

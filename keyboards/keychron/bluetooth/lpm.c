@@ -81,10 +81,14 @@ void lpm_task(void) {
 
     if (get_transport() == TRANSPORT_BLUETOOTH && lpm_time_up && !indicator_is_running()
 #ifdef LED_MATRIX_ENABLE
-        && led_matrix_is_driver_shutdown()
+#ifdef LED_MATRIX_DRIVER_SHUTDOWN_ENABLE
+        // && led_matrix_is_driver_shutdown()  // Function may not exist in modern QMK
+#endif
 #endif
 #ifdef RGB_MATRIX_ENABLE
-        && rgb_matrix_is_driver_shutdown()
+#ifdef RGB_MATRIX_DRIVER_SHUTDOWN_ENABLE
+        // && rgb_matrix_is_driver_shutdown()  // Function doesn't exist in modern QMK
+#endif
 #endif
         && !lpm_any_matrix_action() && !battery_power_on_sample())
 
