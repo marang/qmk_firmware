@@ -39,7 +39,8 @@
 /* Turn off backlight on low brightness to save power */
 #    define RGB_MATRIX_BRIGHTNESS_TURN_OFF_VAL 32
 
-#    define CAPS_LOCK_INDEX 45
+#    define CAPS_LOCK_LED_INDEX 45
+#    define CAPS_LOCK_INDEX CAPS_LOCK_LED_INDEX
 #    define LOW_BAT_IND_INDEX 76
 
 /* RGB Matrix Animation modes. Explicitly enabled
