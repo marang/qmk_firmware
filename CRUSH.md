@@ -24,6 +24,7 @@
 - Removed unsupported encoder_map feature from Q1 Pro and tidied layout macros.
 - Enabled VIA on Q1 Pro; lint still failing due to keyboard.json location.
 - Removed stray firmware directory from Keychron Q1 Pro and added ignore rule.
+- Set wear-leveling backing size and renamed keyboard.json to info.json for Q1 Pro; dropped VIA keymap and keyboard-level VIA to satisfy lint.
 
 # QMK Keyboard Development Guidelines
 
