@@ -7,5 +7,4 @@ BLUETOOTH_DRIVER = custom
 DEBOUNCE_TYPE = custom
 
 include keyboards/keychron/common/common.mk
-
-VIA_ENABLE = yes
+SRC := $(filter-out $(COMMON_DIR)/matrix.c, $(SRC))
