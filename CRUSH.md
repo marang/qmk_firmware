@@ -25,6 +25,7 @@
 - Enabled VIA on Q1 Pro; lint still failing due to keyboard.json location.
 - Removed stray firmware directory from Keychron Q1 Pro and added ignore rule.
 - Set wear-leveling backing size and renamed keyboard.json to info.json for Q1 Pro; dropped VIA keymap and keyboard-level VIA to satisfy lint.
+- Fixed bootloader include order and defined bootloader for Q1 Pro variants to resolve linking errors.
 
 # QMK Keyboard Development Guidelines
 
