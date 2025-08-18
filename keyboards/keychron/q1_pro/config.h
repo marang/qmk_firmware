@@ -71,6 +71,7 @@
 
 /* Emulated EEPROM configuration */
 #define FEE_DENSITY_BYTES FEE_PAGE_SIZE
+#define WEAR_LEVELING_BACKING_SIZE 4096
 #define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 2047
 
 /* Encoder Configuration */
