@@ -543,12 +543,12 @@ VPATH += $(INTERMEDIATE_OUTPUT)/src
 include $(BUILDDEFS_PATH)/common_features.mk
 include $(BUILDDEFS_PATH)/generic_features.mk
 include $(TMK_PATH)/protocol.mk
+-include $(PLATFORM_PATH)/$(PLATFORM_KEY)/bootloader.mk
 include $(PLATFORM_PATH)/common.mk
 
 SRC += $(patsubst %.c,%.clib,$(LIB_SRC))
 SRC += $(patsubst %.c,%.clib,$(QUANTUM_LIB_SRC))
 
--include $(PLATFORM_PATH)/$(PLATFORM_KEY)/bootloader.mk
 include $(PLATFORM_PATH)/$(PLATFORM_KEY)/platform.mk
 -include $(PLATFORM_PATH)/$(PLATFORM_KEY)/flash.mk
 
