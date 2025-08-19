@@ -546,14 +546,13 @@ SRC += \
 # Optimize size but this may cause error "relocation truncated to fit"
 #EXTRALDFLAGS = -Wl,--relax
 
-include $(PLATFORM_PATH)/$(PLATFORM_KEY)/platform.mk
-
 # Include C and assembly sources from LIB_SRC and QUANTUM_LIB_SRC. Assembly
 # files (.S) need to be added directly so that startup code like crt0 and
 # vectors are built correctly.
 SRC += $(patsubst %.c,%.clib,$(filter %.c,$(LIB_SRC)))
-SRC += $(filter %.S,$(LIB_SRC))
 SRC += $(patsubst %.c,%.clib,$(filter %.c,$(QUANTUM_LIB_SRC)))
+include $(PLATFORM_PATH)/$(PLATFORM_KEY)/platform.mk
+SRC += $(filter %.S,$(LIB_SRC))
 SRC += $(filter %.S,$(QUANTUM_LIB_SRC))
 -include $(PLATFORM_PATH)/$(PLATFORM_KEY)/flash.mk
 
