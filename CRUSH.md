@@ -9,7 +9,7 @@
 - Updating a documentation does not need to run tests or compiling or similar executions.
 
 ## Git Workflow
-- Create a feature branch for changes and open a PR for review; merge to `go/main`
+- Create a feature branch with following naming convetion `go/feature-*` for changes and open a PR for review; merge to `go/main`
   only after approval.
 - The development is tracked in `go/*`; prefix related branches with `go/feature-*`.
 - Keep commits focused and ensure the working tree is clean before committing.
