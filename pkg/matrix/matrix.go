@@ -1,10 +1,10 @@
 package matrix
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/qmk/qmk_firmware/machine"
+	"github.com/qmk/qmk_firmware/pkg/debug"
 	"github.com/qmk/qmk_firmware/pkg/power"
 )
 
@@ -65,7 +65,7 @@ func (m *Matrix) Scan() [][]bool {
 		for rowIdx, row := range m.rows {
 			pressed := !row.Get()
 			result[rowIdx][col] = pressed
-			fmt.Printf("row %d col %d: %v\n", rowIdx, col, pressed)
+			debug.Printf("row %d col %d: %v\n", rowIdx, col, pressed)
 		}
 	}
 	return result

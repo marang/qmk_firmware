@@ -1,5 +1,7 @@
 package rgb
 
+import "github.com/qmk/qmk_firmware/pkg/debug"
+
 // LED represents a single RGB LED with 8-bit color channels.
 type LED struct {
 	R, G, B uint8
@@ -13,6 +15,7 @@ type Strip struct {
 
 // New creates a Strip containing count LEDs and enables them.
 func New(count int) *Strip {
+	debug.Printf("rgb: init %d leds\n", count)
 	return &Strip{
 		leds:       make([]LED, count),
 		brightness: 255,
@@ -30,6 +33,7 @@ func (s *Strip) LED(i int) *LED {
 // SetBrightness adjusts the global brightness scaling applied in Frame.
 func (s *Strip) SetBrightness(b uint8) {
 	s.brightness = b
+	debug.Printf("rgb: brightness -> %d\n", b)
 }
 
 // Frame returns a copy of the LED colors scaled by the current brightness.
@@ -42,6 +46,7 @@ func (s *Strip) Frame() []LED {
 			B: scale(l.B, s.brightness),
 		}
 	}
+	debug.Printf("rgb: frame %v\n", scaled)
 	return scaled
 }
 
