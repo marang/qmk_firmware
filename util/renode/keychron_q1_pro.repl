@@ -1,5 +1,6 @@
 # Renode platform for Keychron Q1 Pro (STM32L432)
 # Base addresses and sizes from the STM32L432 datasheet
+# Tagged registers allow `SystemInit()` to program clocks and flash latency
 using sysbus
 
 cpu: CPU.CortexM @ sysbus
