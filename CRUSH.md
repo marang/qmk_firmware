@@ -1,6 +1,11 @@
 # Guidance for future agents. Read before working and append concise notes to
 **Task Notes** after each run.
 
+## Understand the task and decide wise to be efficient
+- Distinguish between updating documentation and code
+- Code needs to run tests and other tasks
+- Updating a documentation does not need to run tests or compiling or similar executions.
+
 ## Build and Lint
 - `qmk` CLI is not installed by default; install it with `pip install qmk` before running `qmk` commands.
 - Use the `qmk` CLI for all QMK tasks.
