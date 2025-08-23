@@ -1,0 +1,15 @@
+{
+  "layers": [
+    {
+      "name": "base",
+      "keys": [["KC_A", "KC_B"], ["KC_B", "KC_A"]]
+    },
+    {
+      "name": "fn",
+      "keys": [["KC_B", "KC_A"], ["KC_A", "KC_B"]]
+    }
+  ],
+  "macros": {
+    "greet": ["KC_A", "KC_B", "KC_A"]
+  }
+}
