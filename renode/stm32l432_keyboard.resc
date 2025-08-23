@@ -1,0 +1,19 @@
+using sysbus
+
+mach create "stm32l432-keyboard"
+machine LoadPlatformDescription @stm32l432_keyboard.repl
+
+# Expose USB HID interface to host
+connector Connect sysbus.usb 1234
+
+# Simulate a key press via shift register
+log "Pressing key row0-col0"
+sysbus.shiftRegister Write 0x1
+emulation RunFor "00:00:00.01"
+sysbus.shiftRegister Write 0x0
+
+# Toggle first LED using SNLED27351 driver
+log "Blink LED0"
+sysbus.ledDriver SetLed 0 true
+emulation RunFor "00:00:00.01"
+sysbus.ledDriver SetLed 0 false

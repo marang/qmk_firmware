@@ -36,3 +36,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: integrated HID package mapping matrix events to USB reports.
 
 - work: added RGB LED strip with brightness control and tests.
+- go/feature-renode: added Renode platform and monitor scripts for STM32L432 keyboard with USB HID.
