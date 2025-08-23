@@ -1,5 +1,7 @@
 using sysbus
 
+# Default firmware path; override with
+# `firmware=@path/to/custom.elf` when invoking Renode.
 $firmware?=@$(BUILD_DIR)/$(TARGET).elf
 
 mach create "keychron_q1_pro"
