@@ -555,6 +555,7 @@ include $(PLATFORM_PATH)/$(PLATFORM_KEY)/platform.mk
 SRC += $(filter %.S,$(LIB_SRC))
 SRC += $(filter %.S,$(QUANTUM_LIB_SRC))
 -include $(PLATFORM_PATH)/$(PLATFORM_KEY)/flash.mk
+# Include Renode helper if available
 -include $(PLATFORM_PATH)/$(PLATFORM_KEY)/renode.mk
 
 ifneq ($(strip $(PROTOCOL)),)
