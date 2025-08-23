@@ -47,6 +47,7 @@ When adding a task note, begin with the current branch name. For example:
 - work: installed arm-none-eabi-gcc toolchain and initialized ChibiOS submodule; qmk compile for keychron/q1_pro default still fails (RGB_MATRIX_LED_COUNT undeclared, eeconfig_read_keymap signature).
 - work: installed arm-none-eabi-gcc toolchain and updated ChibiOS submodule; qmk compile for keychron/q1_pro default fails (RGB_MATRIX_LED_COUNT undeclared, eeconfig_read_keymap signature).
 - work: shellcheck not installed; installed via apt to lint renode script.
+- work: Renode not installed; unable to verify version for documentation.
 
 # QMK Keyboard Development Guidelines
 
