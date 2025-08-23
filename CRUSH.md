@@ -208,3 +208,5 @@ typedef struct {
 - Use the QMK test framework for unit testing
 - All new features should include appropriate tests
 - Test coverage should be maintained for existing functionality
+
+- work: Renode emulator not installed and not available via apt or pip; `make keychron/q1_pro:renode` cannot launch Renode.

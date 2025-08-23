@@ -13,4 +13,4 @@ endif
 
 # Launch Renode with the built ELF and the provided script
 renode: $(BUILD_DIR)/$(TARGET).elf
-	$(RENODE) $(RENODE_ARGS) $(RENODE_RESC) $(BUILD_DIR)/$(TARGET).elf
+	$(RENODE) $(RENODE_ARGS) "$(RENODE_RESC)" "$(BUILD_DIR)/$(TARGET).elf"
