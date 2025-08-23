@@ -33,4 +33,5 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - go/feature-stm32l432: added STM32L432 TinyGo support and board docs.
 
 - work: added TinyGo matrix scanner using 74HC595 shift register and logging.
+- work: integrated HID package mapping matrix events to USB reports.
 
