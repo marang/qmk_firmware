@@ -1,5 +1,7 @@
 package machine
 
+import "fmt"
+
 // Basic support for the STM32L432 microcontroller. This file adds minimal
 // definitions for clocks, GPIO, USB, SPI, and I2C peripherals so that TinyGo
 // can reference the hardware resources present on the Keychron Q1 Pro.
@@ -75,6 +77,12 @@ var USB USBCDC
 
 // Configure prepares the USB peripheral for use.
 func (USBCDC) Configure() {}
+
+// Write sends data over the USB CDC interface.
+func (USBCDC) Write(b []byte) (int, error) {
+	fmt.Printf("usb tx: %v\n", b)
+	return len(b), nil
+}
 
 // init configures system clocks.
 func init() {
