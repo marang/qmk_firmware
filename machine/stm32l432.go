@@ -40,6 +40,9 @@ func (p Pin) Configure(cfg PinConfig) {}
 // Set drives the pin high or low.
 func (p Pin) Set(high bool) {}
 
+// Get reads the current value of the pin.
+func (p Pin) Get() bool { return false }
+
 // SPI represents a Serial Peripheral Interface bus instance.
 type SPI struct{}
 
