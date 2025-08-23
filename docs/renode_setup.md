@@ -33,3 +33,5 @@ renode --version
 ```
 
 Ensure the reported version is 1.15 or newer.
+
+For other platforms or installation options, consult the [official Renode documentation](https://renode.io/).

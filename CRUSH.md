@@ -216,3 +216,4 @@ typedef struct {
 - work: pytest failed—missing ORIG_CWD environment variable required by qmk tests.
 - work: qmk compile -kb keychron/q1_pro -km default failed (arm-none-eabi-gcc missing, ChibiOS submodule missing).
 - work: Renode not installed by default; apt-get install renode needed for CI job.
+- work: pytest still fails due to missing ORIG_CWD environment variable.
