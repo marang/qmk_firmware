@@ -1,6 +1,8 @@
 # Guidance for future agents. Read before working and append concise notes to
 **Task Notes** after each run.
 
+## Use `CRUSH-dep.md` to record missing packages, dependencies, or process improvements encountered during tasks.
+
 ## Build and Lint
 - `qmk` CLI is not installed by default; install it with `pip install qmk` before running `qmk` commands.
 - Use the `qmk` CLI for all QMK tasks.
@@ -10,17 +12,15 @@
 - Include the output of these commands in the final report.
 
 ## Git Workflow
-- Create a feature branch for changes and open a PR for review; merge to `master`
+- Create a feature branch for changes and open a PR for review; merge to `go/main`
   only after approval.
+- The development is tracked in `go/*`; prefix related branches with `go/feature-*`.
 - Keep commits focused and ensure the working tree is clean before committing.
 
 ## Maintenance
 - Keep this document brief, adding only noteworthy guidance.
 - Add nested `CRUSH.md` files for new directories when useful.
 - Record missing packages, dependencies, or process improvements here to avoid repeated issues.
-
-## Go Firmware Branch
-- Go firmware development is tracked in `go/feature-q1pro`; prefix related branches with `go/`.
 
 ## Task Notes
 - Initial guidelines added.
