@@ -51,3 +51,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - go/feature-keychron-pinconfig: defined GPIO constants and configured peripheral pins for Keychron Q1 Pro.
 - go/feature-hid-usage: populated keycode lookup with full HID usage IDs and added tests.
 - work: validated RGB LED count parameter and tests for invalid inputs.
+- work: verified Renode command existence and allowed path override via RENODE.
