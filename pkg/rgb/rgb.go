@@ -15,6 +15,10 @@ type Strip struct {
 
 // New creates a Strip containing count LEDs and enables them.
 func New(count int) *Strip {
+	if count <= 0 {
+		debug.Printf("rgb: invalid led count %d\n", count)
+		return nil
+	}
 	debug.Printf("rgb: init %d leds\n", count)
 	return &Strip{
 		leds:       make([]LED, count),
