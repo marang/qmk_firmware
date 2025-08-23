@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/qmk/qmk_firmware/machine"
+	"github.com/qmk/qmk_firmware/pkg/rgb"
 )
 
 type testPin struct {
@@ -23,5 +24,20 @@ func TestScan(t *testing.T) {
 	}
 	if !got[1][0] || !got[1][1] {
 		t.Errorf("row 1 expected all true, got %v", got[1])
+	}
+
+	strip := rgb.New(1)
+	strip.SetBrightness(128)
+	led := strip.LED(0)
+	led.R = 255
+	frame := strip.Frame()
+	if frame[0].R != 128 {
+		t.Fatalf("expected red 128, got %d", frame[0].R)
+	}
+	m.Scan()
+	led.R, led.G = 0, 255
+	frame = strip.Frame()
+	if frame[0].G != 128 {
+		t.Fatalf("expected green 128 after toggle, got %d", frame[0].G)
 	}
 }
