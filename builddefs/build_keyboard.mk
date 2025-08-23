@@ -555,6 +555,7 @@ include $(PLATFORM_PATH)/$(PLATFORM_KEY)/platform.mk
 SRC += $(filter %.S,$(LIB_SRC))
 SRC += $(filter %.S,$(QUANTUM_LIB_SRC))
 -include $(PLATFORM_PATH)/$(PLATFORM_KEY)/flash.mk
+-include $(PLATFORM_PATH)/$(PLATFORM_KEY)/qemu.mk
 
 ifneq ($(strip $(PROTOCOL)),)
 PROTOCOL_KEY = $(strip $(shell echo $(PROTOCOL) | tr '[:upper:]' '[:lower:]'))

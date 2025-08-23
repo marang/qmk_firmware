@@ -71,6 +71,9 @@
     "bear_face": {
         "target": "bear_face/v1"
     },
+    "blackpill": {
+        "target": "handwired/onekey/blackpill_f401"
+    },
     "bm16a": {
         "target": "kprepublic/bm16a/v1"
     },
