@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/qmk/qmk_firmware/machine"
+	"github.com/qmk/qmk_firmware/pkg/power"
 	"github.com/qmk/qmk_firmware/pkg/rgb"
 )
 
@@ -39,5 +40,19 @@ func TestScan(t *testing.T) {
 	frame = strip.Frame()
 	if frame[0].G != 128 {
 		t.Fatalf("expected green 128 after toggle, got %d", frame[0].G)
+	}
+}
+
+func TestLoopTriggersSleep(t *testing.T) {
+	rows := []Pin{&testPin{state: true}}
+	m := New(&testPin{}, &testPin{}, &testPin{}, rows, 1)
+	power.WakeUSB()
+	m.Loop(0, power.ModeStop)
+	if power.State() != power.ModeStop {
+		t.Fatalf("expected stop mode, got %v", power.State())
+	}
+	power.WakeGPIO()
+	if power.State() != power.ModeActive {
+		t.Fatalf("expected active after wake, got %v", power.State())
 	}
 }
