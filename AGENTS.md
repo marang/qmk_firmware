@@ -1,3 +1,3 @@
 # AGENTS Instructions
-
-have a look into file: `CRUSH.md` for further instructions
+- Use `CRUSH.md` to record missing packages, dependencies, or process improvements encountered during tasks.
+- See `CRUSH.md` for further instructions.
