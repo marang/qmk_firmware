@@ -35,3 +35,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: added TinyGo matrix scanner using 74HC595 shift register and logging.
 - work: integrated HID package mapping matrix events to USB reports.
 
+- work: added RGB LED strip with brightness control and tests.
