@@ -30,4 +30,5 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - Initial guidelines added.
 - Clarified branch workflow and emphasis on concise updates.
 - Submodules updated for Q1 Pro work.
+- go/feature-stm32l432: added STM32L432 TinyGo support and board docs.
 
