@@ -1,8 +1,8 @@
 package hid
 
 import (
-	"fmt"
 	"github.com/qmk/qmk_firmware/machine"
+	"github.com/qmk/qmk_firmware/pkg/debug"
 )
 
 // Keycode represents a USB HID key usage ID.
@@ -43,7 +43,7 @@ type Keyboard struct {
 // NewKeyboard configures the USB device and returns a Keyboard.
 func NewKeyboard(usb USBDevice, keymap map[[2]int]Keycode) *Keyboard {
 	usb.Configure()
-	fmt.Println("usb: enumerated")
+	debug.Printf("usb: enumerated\n")
 	return &Keyboard{usb: usb, keymap: keymap}
 }
 
@@ -56,7 +56,7 @@ func (k *Keyboard) ProcessMatrix(matrix [][]bool) Report {
 			if matrix[r][c] {
 				if kc, ok := k.keymap[[2]int{r, c}]; ok && idx < len(report.Keys) {
 					report.Keys[idx] = byte(kc)
-					fmt.Printf("key r%d c%d -> 0x%X\n", r, c, kc)
+					debug.Printf("key r%d c%d -> 0x%X\n", r, c, kc)
 					idx++
 				}
 			}
