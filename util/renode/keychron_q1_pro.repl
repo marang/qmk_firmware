@@ -1,3 +1,5 @@
+# Renode platform for Keychron Q1 Pro (STM32L432)
+# Base addresses and sizes from the STM32L432 datasheet
 using sysbus
 
 cpu: CPU.CortexM @ sysbus
