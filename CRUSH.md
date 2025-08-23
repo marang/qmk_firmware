@@ -41,6 +41,7 @@ When adding a task note, begin with the current branch name. For example:
 
 - Document missing packages and workflow improvements here; `qmk` CLI isn't installed by default and can be added with `pip install qmk`.
 - feature/renode: arm-none-eabi-gcc toolchain missing; qmk compile for keychron/q1_pro failed.
+- work: arm-none-eabi-gcc toolchain and ChibiOS submodule missing; qmk compile for keychron/q1_pro failed.
 
 # QMK Keyboard Development Guidelines
 
