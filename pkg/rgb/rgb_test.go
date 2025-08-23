@@ -28,3 +28,12 @@ func TestLEDAccess(t *testing.T) {
 		t.Errorf("expected blue 255, got %d", frame[0].B)
 	}
 }
+
+func TestNewInvalidCount(t *testing.T) {
+	if New(0) != nil {
+		t.Errorf("expected nil for count 0")
+	}
+	if New(-1) != nil {
+		t.Errorf("expected nil for negative count")
+	}
+}
