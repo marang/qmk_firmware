@@ -49,6 +49,7 @@ When adding a task note, begin with the current branch name. For example:
 - work: shellcheck not installed; installed via apt to lint renode script.
 - work: Renode not installed; unable to verify version for documentation.
 - work: Renode package still unavailable via apt or pip; could not load `.repl` in emulator.
+- work: apt-get update failed for mise.jdx.dev repository (403); renode installation attempts may fail.
 
 # QMK Keyboard Development Guidelines
 

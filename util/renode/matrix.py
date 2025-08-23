@@ -1,9 +1,17 @@
 # Simple N x M GPIO matrix model for Renode
+"""Keyboard matrix peripheral for Renode.
+
+Expose an N\u00d7M matrix to a Renode machine and provide monitor commands
+``press <row> <col>`` and ``release <row> <col>`` to simulate key activity.
+Columns are driven by a shift register controlled via ``ds``/``shcp``/``stcp``
+lines, while rows are exposed as GPIO outputs to the SoC.
+"""
 
 from Renode import *
 from Renode.Peripherals import IManagedGPIOReceiver, IProvidesGPIO
 from Renode.Utilities import Log
 from Renode.Peripherals.GPIOPort import GPIO
+
 
 class Matrix(IManagedGPIOReceiver, IProvidesGPIO):
     """Simple keyboard matrix model with shift-register driven columns."""
@@ -49,7 +57,10 @@ class Matrix(IManagedGPIOReceiver, IProvidesGPIO):
         self._shift = 0
         self._ds_state = False
         for r in range(self.rows):
+            for c in range(self.cols):
+                self.keys[r][c] = False
             self.row_lines[r].Set(True)
+        self._update_rows()
 
     # exported commands
     @export
