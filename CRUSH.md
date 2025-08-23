@@ -2,6 +2,7 @@
 **Task Notes** after each run.
 
 ## Build and Lint
+- `qmk` CLI is not installed by default; install it with `pip install qmk` before running `qmk` commands.
 - Use the `qmk` CLI for all QMK tasks.
 - For keyboard-related changes, run:
   - `qmk lint -kb <keyboard>`
@@ -16,6 +17,7 @@
 ## Maintenance
 - Keep this document brief, adding only noteworthy guidance.
 - Add nested `CRUSH.md` files for new directories when useful.
+- Record missing packages, dependencies, or process improvements here to avoid repeated issues.
 
 ## Task Notes
 - Initial guidelines added.
@@ -26,6 +28,8 @@
 - Removed stray firmware directory from Keychron Q1 Pro and added ignore rule.
 - Set wear-leveling backing size and renamed keyboard.json to info.json for Q1 Pro; dropped VIA keymap and keyboard-level VIA to satisfy lint.
 - Fixed bootloader include order and defined bootloader for Q1 Pro variants to resolve linking errors.
+
+- Document missing packages and workflow improvements here; `qmk` CLI isn't installed by default and can be added with `pip install qmk`.
 
 # QMK Keyboard Development Guidelines
 
