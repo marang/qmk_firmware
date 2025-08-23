@@ -40,4 +40,5 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 
 - work: added Makefile and Renode launch script with CI logging.
 - work: added CI workflow to build TinyGo firmware, run Renode tests, and archive HID logs.
+- work: added STM32 DFU bootloader package, flash rule, and recovery docs.
 
