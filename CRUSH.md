@@ -211,3 +211,4 @@ typedef struct {
 - Test coverage should be maintained for existing functionality
 
 - work: Renode emulator not installed and not available via apt or pip; `make keychron/q1_pro:renode` cannot launch Renode.
+- work: qmk CLI not installed; unable to run qmk commands for Renode script.
