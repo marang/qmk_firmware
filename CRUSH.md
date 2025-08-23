@@ -44,3 +44,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 
 - work: added power package with sleep loop and tests.
 
+- go/feature-keymap: added keymap package with parser and macros.
