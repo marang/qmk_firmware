@@ -1,0 +1,16 @@
+using sysbus
+
+$firmware?=@$(BUILD_DIR)/$(TARGET).elf
+
+mach create "keychron_q1_pro"
+machine LoadPlatformDescription @keychron_q1_pro.repl
+
+showAnalyzer sysbus.usart2
+
+macro reset
+"""
+    sysbus LoadELF $firmware
+"""
+
+runMacro $reset
+start
