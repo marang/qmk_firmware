@@ -40,6 +40,7 @@ When adding a task note, begin with the current branch name. For example:
 - Fixed bootloader include order and defined bootloader for Q1 Pro variants to resolve linking errors.
 
 - Document missing packages and workflow improvements here; `qmk` CLI isn't installed by default and can be added with `pip install qmk`.
+- feature/renode: arm-none-eabi-gcc toolchain missing; qmk compile for keychron/q1_pro failed.
 
 # QMK Keyboard Development Guidelines
 
