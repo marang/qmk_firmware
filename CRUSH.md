@@ -50,3 +50,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - go/feature-stm32l432-pin: implemented register-level pin, SPI, I2C, USB and tests.
 - go/feature-keychron-pinconfig: defined GPIO constants and configured peripheral pins for Keychron Q1 Pro.
 - go/feature-hid-usage: populated keycode lookup with full HID usage IDs and added tests.
+- work: validated RGB LED count parameter and tests for invalid inputs.
