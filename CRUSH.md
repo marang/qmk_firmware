@@ -39,3 +39,5 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - go/feature-renode: added Renode platform and monitor scripts for STM32L432 keyboard with USB HID.
 
 - work: added Makefile and Renode launch script with CI logging.
+- work: added CI workflow to build TinyGo firmware, run Renode tests, and archive HID logs.
+

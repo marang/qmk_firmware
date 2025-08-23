@@ -1,0 +1,37 @@
+name: TinyGo Firmware CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - master
+      - work
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: tinygo-org/setup-tinygo@v1
+        with:
+          version: 0.28.1
+      - name: Install Renode
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y renode
+      - name: Run Renode simulation
+        run: |
+          RENODE_LOG=hid.log scripts/run-renode.sh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: renode-results
+          path: |
+            hid.log
+            build/firmware.elf
+
