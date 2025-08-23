@@ -47,3 +47,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - go/feature-keymap: added keymap package with parser and macros.
 - work: added debug logging package and instrumented drivers.
 - work: added README, CONTRIBUTING, and API docs.
+- go/feature-stm32l432-pin: implemented register-level pin, SPI, I2C, USB and tests.
