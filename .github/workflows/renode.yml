@@ -1,0 +1,41 @@
+---
+name: Renode
+
+permissions:
+  contents: read
+
+'on':
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    paths:
+      - 'keyboards/keychron/q1_pro/**'
+      - 'util/renode/**'
+      - 'platforms/chibios/**'
+      - '.github/workflows/renode.yml'
+
+jobs:
+  renode:
+    runs-on: ubuntu-latest
+
+    container: ghcr.io/qmk/qmk_cli
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends renode
+      - name: Build and run Renode
+        run: |
+          set -o pipefail
+          RENODE_ARGS="--disable-xwt \
+          -e 'sysbus.usart2 DumpUartLog uart.log' \
+          -e 'emulation RunFor \"1\"' \
+          -e 'quit'" \
+          make keychron/q1_pro:renode
+          grep -qi "matrix init" uart.log
