@@ -1,6 +1,6 @@
 package machine
 
-import "fmt"
+import "device/stm32"
 
 // Basic support for the STM32L432 microcontroller. This file adds minimal
 // definitions for clocks, GPIO, USB, SPI, and I2C peripherals so that TinyGo
@@ -9,82 +9,124 @@ import "fmt"
 // CPUFrequency is the main system clock frequency in hertz.
 const CPUFrequency = 80_000_000
 
-// Pin represents a single GPIO pin on the microcontroller.
 type Pin uint8
 
-// List of available GPIO pins.
 const (
-	PA0 Pin = iota
-	PA1
-	PA2
-	PB0
-	PB1
+	portA Pin = iota * 16
+	portB
 )
 
-// PinConfig configures the behavior of a GPIO pin.
+const (
+	PA0 Pin = portA + 0
+	PA1 Pin = portA + 1
+	PA2 Pin = portA + 2
+	PB0 Pin = portB + 0
+	PB1 Pin = portB + 1
+)
+
 type PinConfig struct {
 	Mode PinMode
 }
 
-// PinMode selects a particular pin behavior.
 type PinMode uint8
 
-// Supported pin modes.
 const (
 	PinInput PinMode = iota
 	PinOutput
 	PinOutputOpenDrain
 )
 
-// Configure sets up the pin with the requested configuration.
-func (p Pin) Configure(cfg PinConfig) {}
+func (p Pin) port() uint8 { return uint8(p) / 16 }
+func (p Pin) pin() uint8  { return uint8(p) % 16 }
 
-// Set drives the pin high or low.
-func (p Pin) Set(high bool) {}
+func (p Pin) getPort() *stm32.GPIO_Type {
+	switch p.port() {
+	case 0:
+		return stm32.GPIOA
+	case 1:
+		return stm32.GPIOB
+	default:
+		panic("invalid port")
+	}
+}
 
-// Get reads the current value of the pin.
-func (p Pin) Get() bool { return false }
+func (p Pin) enableClock() {
+	switch p.port() {
+	case 0:
+		stm32.RCC.AHB2ENR.SetBits(stm32.RCC_AHB2ENR_GPIOAEN)
+	case 1:
+		stm32.RCC.AHB2ENR.SetBits(stm32.RCC_AHB2ENR_GPIOBEN)
+	}
+}
 
-// SPI represents a Serial Peripheral Interface bus instance.
+func (p Pin) Configure(cfg PinConfig) {
+	p.enableClock()
+	port := p.getPort()
+	shift := p.pin() * 2
+	port.MODER.ReplaceBits(uint32(cfg.Mode), 0x3, shift)
+	switch cfg.Mode {
+	case PinOutput:
+		port.OTYPER.ClearBits(uint32(1) << p.pin())
+	case PinOutputOpenDrain:
+		port.OTYPER.SetBits(uint32(1) << p.pin())
+	}
+}
+
+func (p Pin) Set(high bool) {
+	port := p.getPort()
+	mask := uint32(1) << p.pin()
+	if high {
+		port.BSRR.Set(mask)
+		port.IDR.SetBits(mask)
+	} else {
+		port.BSRR.Set(mask << 16)
+		port.IDR.ClearBits(mask)
+	}
+}
+
+func (p Pin) Get() bool {
+	port := p.getPort()
+	mask := uint32(1) << p.pin()
+	return port.IDR.HasBits(mask)
+}
+
 type SPI struct{}
 
-// SPI0 is the first SPI bus on the STM32L432.
 var SPI0 SPI
 
-// SPIConfig contains the configuration for an SPI bus.
 type SPIConfig struct{}
 
-// Configure sets up the SPI peripheral.
-func (SPI) Configure(cfg SPIConfig) {}
+func (SPI) Configure(cfg SPIConfig) {
+	stm32.RCC.APB2ENR.SetBits(stm32.RCC_APB2ENR_SPI1EN)
+	stm32.SPI1.CR1.SetBits(0x31)
+}
 
-// I2C represents an I2C bus.
 type I2C struct{}
 
-// I2C0 is the primary I2C bus.
 var I2C0 I2C
 
-// I2CConfig contains the configuration for an I2C bus.
 type I2CConfig struct{}
 
-// Configure sets up the I2C peripheral.
-func (I2C) Configure(cfg I2CConfig) {}
+func (I2C) Configure(cfg I2CConfig) {
+	stm32.RCC.APB1ENR1.SetBits(stm32.RCC_APB1ENR1_I2C1EN)
+	stm32.I2C1.CR1.SetBits(1)
+}
 
-// USBCDC provides a minimal USB CDC implementation.
 type USBCDC struct{}
 
-// USB represents the on-chip USB device controller.
 var USB USBCDC
 
-// Configure prepares the USB peripheral for use.
-func (USBCDC) Configure() {}
+func (USBCDC) Configure() {
+	stm32.RCC.APB1ENR1.SetBits(stm32.RCC_APB1ENR1_USBFSEN)
+}
 
-// Write sends data over the USB CDC interface.
 func (USBCDC) Write(b []byte) (int, error) {
-	fmt.Printf("usb tx: %v\n", b)
+	for _, c := range b {
+		stm32.USBFS.EP0R.Set(uint32(c))
+	}
 	return len(b), nil
 }
 
-// init configures system clocks.
 func init() {
 	// Set up clocks to run at 80MHz.
 }
