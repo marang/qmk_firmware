@@ -2,8 +2,10 @@ package matrix
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/qmk/qmk_firmware/machine"
+	"github.com/qmk/qmk_firmware/pkg/power"
 )
 
 // Pin abstracts a GPIO pin for scanning.
@@ -67,4 +69,36 @@ func (m *Matrix) Scan() [][]bool {
 		}
 	}
 	return result
+}
+
+// Loop continuously scans the matrix and enters a low power mode after the
+// specified timeout with no key activity.
+func (m *Matrix) Loop(timeout time.Duration, mode power.Mode) {
+	last := time.Now()
+	for {
+		matrix := m.Scan()
+		if anyPressed(matrix) {
+			last = time.Now()
+		}
+		if time.Since(last) > timeout {
+			switch mode {
+			case power.ModeStandby:
+				power.Standby()
+			default:
+				power.Stop()
+			}
+			return
+		}
+	}
+}
+
+func anyPressed(matrix [][]bool) bool {
+	for i := range matrix {
+		for j := range matrix[i] {
+			if matrix[i][j] {
+				return true
+			}
+		}
+	}
+	return false
 }
