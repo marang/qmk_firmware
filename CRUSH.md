@@ -20,6 +20,11 @@
 - Record missing packages, dependencies, or process improvements here to avoid repeated issues.
 
 ## Task Notes
+
+When adding a task note, begin with the current branch name. For example:
+
+- `feature/renode: describe task`
+
 - Initial guidelines added.
 - Clarified branch workflow and emphasis on concise updates.
 - Submodules updated for Q1 Pro work.
