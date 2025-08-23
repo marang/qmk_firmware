@@ -3,13 +3,10 @@
 
 ## Use `CRUSH-dep.md` to record missing packages, dependencies, or process improvements encountered during tasks.
 
-## Build and Lint
-- `qmk` CLI is not installed by default; install it with `pip install qmk` before running `qmk` commands.
-- Use the `qmk` CLI for all QMK tasks.
-- For keyboard-related changes, run:
-  - `qmk lint -kb <keyboard>`
-  - `qmk compile -kb <keyboard> -km <keymap>`
-- Include the output of these commands in the final report.
+## Understand the task and decide wise to be efficient
+- Distinguish between updating documentation and code
+- Code needs to run tests and other tasks
+- Updating a documentation does not need to run tests or compiling or similar executions.
 
 ## Git Workflow
 - Create a feature branch for changes and open a PR for review; merge to `go/main`
@@ -23,6 +20,8 @@
 - Record missing packages, dependencies, or process improvements here to avoid repeated issues.
 
 ## Task Notes
+When adding a task note, begin with the current branch name. For example: `go/feature-*: describe task`
+
 - Initial guidelines added.
 - Clarified branch workflow and emphasis on concise updates.
 - Submodules updated for Q1 Pro work.
