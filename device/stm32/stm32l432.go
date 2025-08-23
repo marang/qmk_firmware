@@ -9,6 +9,8 @@ type GPIO_Type struct {
 	IDR    volatile.Register32
 	ODR    volatile.Register32
 	BSRR   volatile.Register32
+	AFRL   volatile.Register32
+	AFRH   volatile.Register32
 }
 
 type RCC_Type struct {
