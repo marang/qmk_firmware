@@ -3,9 +3,9 @@ package matrix
 import (
 	"time"
 
-	"github.com/qmk/qmk_firmware/machine"
 	"github.com/qmk/qmk_firmware/pkg/debug"
 	"github.com/qmk/qmk_firmware/pkg/power"
+	"machine"
 )
 
 // Pin abstracts a GPIO pin for scanning.
