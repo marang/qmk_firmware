@@ -1,8 +1,8 @@
 package hid
 
 import (
-	"github.com/qmk/qmk_firmware/machine"
 	"github.com/qmk/qmk_firmware/pkg/debug"
+	"machine"
 )
 
 // Keycode represents a USB HID key usage ID.
