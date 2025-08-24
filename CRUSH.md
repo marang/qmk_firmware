@@ -67,3 +67,7 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: added Keychron Q1 Pro TinyGo target file.
 - work: ensured run-renode script exports GOROOT and namespaced local device/runtime packages.
 - work: defined STM32L432 peripheral pin constants to resolve TinyGo build errors.
+- go/feature-uart: stubbed UART and USB serial interfaces for STM32L432.
+- work: replaced TinyGo machine package to expose STM32L432 peripheral pin constants.
+- work: namespaced machine module to avoid import ambiguity with TinyGo runtime.
+- work: installed TinyGo 0.39.0 and make build fails: undefined peripheral pin constants in std machine package.
