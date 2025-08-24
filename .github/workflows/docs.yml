@@ -49,11 +49,11 @@ jobs:
         nvm use 20
         corepack enable
 
-    - name: Build docs
+    - name: Generate docs
       run: |
         source $HOME/.bashrc
         nvm use 20
-        qmk docs --build
+        qmk generate docs --build
 
     - name: Deploy
       if: ${{ github.event_name == 'push' && github.repository == 'qmk/qmk_firmware' }}
