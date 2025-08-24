@@ -1,6 +1,7 @@
 package hid
 
 import (
+	machine "github.com/qmk/qmk_firmware/machine"
 	"github.com/qmk/qmk_firmware/pkg/debug"
 	"machine"
 )
