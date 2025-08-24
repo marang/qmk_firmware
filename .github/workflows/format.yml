@@ -1,4 +1,4 @@
-name: PR Lint Format
+name: "go/main: PR Lint Format"
 
 permissions:
   contents: read

@@ -1,4 +1,4 @@
-name: Lint Format
+name: "go/main: Lint Format"
 
 permissions:
   contents: read

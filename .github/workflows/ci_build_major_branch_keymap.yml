@@ -1,4 +1,4 @@
-name: CI Build Major Branch Keymap
+name: "go/main: CI Build Major Branch Keymap"
 
 permissions:
   contents: read
