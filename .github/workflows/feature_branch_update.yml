@@ -1,4 +1,4 @@
-name: Update feature branches after develop merge
+name: "go/main: Update feature branches after develop merge"
 
 permissions:
   contents: write

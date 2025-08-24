@@ -1,4 +1,4 @@
-name: "Pull Request Labeler"
+name: "go/main: Pull Request Labeler"
 
 permissions: { contents: read, pull-requests: write, issues: write }
 

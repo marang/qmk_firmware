@@ -1,4 +1,4 @@
-name: Update API Data
+name: "go/main: Update API Data"
 
 permissions:
   contents: read
