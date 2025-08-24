@@ -218,3 +218,4 @@ typedef struct {
 - work: Renode not installed by default; apt-get install renode needed for CI job.
 - work: pytest still fails due to missing ORIG_CWD environment variable.
 - work: apt-get update hit 403 for mise.jdx.dev; renode package unavailable via apt, installed gcc-arm-none-eabi.
+- work: git submodule update --init --recursive required before compiling to fetch dependencies.
