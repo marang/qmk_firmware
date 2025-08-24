@@ -1,24 +1,21 @@
-using sysbus
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m4"
+    nvic:
+        priorityMask: 0xF0
+        systickFrequency: 80000000
 
-name: "stm32l432-keyboard"
+flash: Memory.MappedMemory @ sysbus 0x08000000
+    size: 0x40000
 
-cpu: CPU.STM32L432 @ sysbus
-    clockFrequency: 80MHz
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x10000
 
-flash: MappedMemory @ sysbus 0x08000000
-    size: 256K
+# 74HC595 shift register for key matrix columns
+shiftRegister: GPIO.GPIOPort @ sysbus 0x40020000
+    numberOfPins: 8
 
-sram: MappedMemory @ sysbus 0x20000000
-    size: 64K
+# SNLED27351 LED driver on I2C bus
+ledDriver: I2C.SNLED27351 @ sysbus 0x20
 
-usb: STM32L4_USB @ sysbus 0x40006800
-    -> connector: usb
-
-spi1: SPI @ sysbus 0x40013000
-
-shiftRegister: Miscellaneous.74HC595 @ spi1
-    gpioOut: cpu.gpiob
-
-i2c1: I2C @ sysbus 0x40005400
-
-ledDriver: Miscellaneous.SNLED27351 @ i2c1 0x74
+# USB device controller
+usb: USB.USBDevice @ sysbus
