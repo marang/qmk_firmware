@@ -22,15 +22,15 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 ## Renode Virtual Testing
 
-Renode 1.15 or newer can emulate the Q1 Pro so you can test keymaps without hardware.
+Renode 1.15 or later can emulate the Q1 Pro, allowing you to exercise keymaps without physical hardware.
 
-1. Install Renode ≥1.15 (see [Renode Setup](../../../docs/renode_setup.md) for OS-specific installation steps).
-2. From the repository root, build the firmware and launch Renode:
+1. Install Renode 1.15 or newer (see [Renode Setup](../../../docs/renode_setup.md) for OS-specific instructions).
+2. From the repository root, build the Renode target and launch the emulator:
 
     ```sh
     make keychron/q1_pro:renode
     ```
-3. At the Renode monitor, use the `matrix` peripheral to simulate key presses. For example, to press and release the *Esc* key:
+3. At the Renode monitor, issue `matrix` commands to simulate key presses. For example, to press and release *Esc*:
 
     ```text
     matrix press 0 0

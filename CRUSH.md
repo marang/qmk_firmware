@@ -219,3 +219,4 @@ typedef struct {
 - work: pytest still fails due to missing ORIG_CWD environment variable.
 - work: apt-get update hit 403 for mise.jdx.dev; renode package unavailable via apt, installed gcc-arm-none-eabi.
 - work: git submodule update --init --recursive required before compiling to fetch dependencies.
+- work: yamllint installed; renode package unavailable via apt-get, and `make keychron/q1_pro:renode` fails (`RGB_MATRIX_LED_COUNT` undeclared, `eeconfig_read_keymap` signature mismatch).
