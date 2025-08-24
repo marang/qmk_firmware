@@ -1,7 +1,7 @@
 package keychron_q1_pro
 
 import (
-	"device/stm32"
+	"github.com/qmk/qmk_firmware/device/stm32"
 	"github.com/qmk/qmk_firmware/machine"
 )
 

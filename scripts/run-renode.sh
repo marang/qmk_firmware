@@ -10,6 +10,8 @@ if ! command -v "$RENODE" >/dev/null 2>&1; then
   exit 1
 fi
 
+export GOROOT=${GOROOT:-$(go env GOROOT)}
+
 make build
 
 "$RENODE" --disable-xwt \
