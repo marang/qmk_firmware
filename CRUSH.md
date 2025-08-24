@@ -82,3 +82,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: added rule to test changes locally until they work.
 - work: documented rule to log missing dependency requirements.
 - work: xxd command missing when inspecting files; recorded in CRUSH-dep.
+- work: nested NVIC configuration under CPU in STM32L432 Renode platform.
