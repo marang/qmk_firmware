@@ -64,3 +64,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: set Makefile tinygo target to local board file and added requirements-dev.txt.
 
 - work: prefixed GitHub Action workflow names with go/main label.
+- work: added Keychron Q1 Pro TinyGo target file.
