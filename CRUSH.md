@@ -80,6 +80,9 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: replaced clock frequency with numeric value to satisfy Renode parser.
 - work: simplified STM32L432 Renode platform to generic Cortex-M and verified simulator boot.
 - work: added rule to test changes locally until they work.
+- work: documented rule to log missing dependency requirements.
+- work: xxd command missing when inspecting files; recorded in CRUSH-dep.
+- work: embedded NVIC in CPU and added shift register, LED driver, and USB peripherals; updated Renode script.
 - work: nested NVIC configuration under CPU in STM32L432 Renode platform.
 - work: corrected NVIC definition syntax so Renode loads STM32L432 platform without errors.
 - work: documented rule to log missing dependency requirements.

@@ -1,12 +1,21 @@
 cpu: CPU.CortexM @ sysbus
     cpuType: "cortex-m4"
-    nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    nvic:
         priorityMask: 0xF0
         systickFrequency: 80000000
-        IRQ -> cpu@0
 
 flash: Memory.MappedMemory @ sysbus 0x08000000
     size: 0x40000
 
 sram: Memory.MappedMemory @ sysbus 0x20000000
     size: 0x10000
+
+# 74HC595 shift register for key matrix columns
+shiftRegister: GPIO.GPIOPort @ sysbus 0x40020000
+    numberOfPins: 8
+
+# SNLED27351 LED driver on I2C bus
+ledDriver: I2C.SNLED27351 @ sysbus 0x20
+
+# USB device controller
+usb: USB.USBDevice @ sysbus
