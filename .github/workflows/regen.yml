@@ -1,4 +1,4 @@
-name: PR Regenerate Files
+name: "go/main: PR Regenerate Files"
 
 permissions:
   contents: read

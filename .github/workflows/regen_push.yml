@@ -1,4 +1,4 @@
-name: Regenerate Files
+name: "go/main: Regenerate Files"
 
 permissions:
   contents: write

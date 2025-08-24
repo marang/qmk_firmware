@@ -1,4 +1,4 @@
-name: TinyGo Firmware CI
+name: "go/main: TinyGo Firmware CI"
 
 permissions:
   contents: read

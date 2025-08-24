@@ -1,4 +1,4 @@
-name: CLI CI
+name: "go/main: CLI CI"
 
 permissions:
   contents: read
