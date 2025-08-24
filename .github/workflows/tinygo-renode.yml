@@ -22,9 +22,7 @@ jobs:
         with:
           tinygo-version: 0.28.1
       - name: Install Renode
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y renode
+        run: scripts/install-renode.sh
       - name: Run Renode simulation
         run: |
           RENODE_LOG=hid.log scripts/run-renode.sh
