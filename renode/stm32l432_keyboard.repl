@@ -1,5 +1,3 @@
-name: "stm32l432-keyboard"
-
 cpu: CPU.STM32L432 @ sysbus
     clockFrequency: 80MHz
 
