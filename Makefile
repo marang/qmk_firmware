@@ -6,13 +6,13 @@ OUT_BIN ?= $(OUT_DIR)/firmware.elf
 .PHONY: build clean flash
 
 build:
-        mkdir -p $(OUT_DIR)
-        $(TINYGO) build -target $(TARGET) -o $(OUT_BIN) ./cmd/firmware
+	mkdir -p $(OUT_DIR)
+	$(TINYGO) build -target $(TARGET) -o $(OUT_BIN) ./cmd/firmware
 
 clean:
-        rm -rf $(OUT_DIR)
+	rm -rf $(OUT_DIR)
 
 flash:
-        mkdir -p $(OUT_DIR)
-        $(TINYGO) build -target $(TARGET) -o $(OUT_BIN) ./cmd/firmware
-        go run ./cmd/flash -bin $(OUT_BIN)
+	mkdir -p $(OUT_DIR)
+	$(TINYGO) build -target $(TARGET) -o $(OUT_BIN) ./cmd/firmware
+	go run ./cmd/flash -bin $(OUT_BIN)
