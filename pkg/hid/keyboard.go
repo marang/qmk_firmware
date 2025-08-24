@@ -1,10 +1,6 @@
 package hid
 
-import (
-	machine "github.com/qmk/qmk_firmware/machine"
-	"github.com/qmk/qmk_firmware/pkg/debug"
-	"machine"
-)
+import "github.com/qmk/qmk_firmware/pkg/debug"
 
 // Keycode represents a USB HID key usage ID.
 type Keycode uint8
@@ -65,9 +61,4 @@ func (k *Keyboard) ProcessMatrix(matrix [][]bool) Report {
 	}
 	k.usb.Write(report.Bytes())
 	return report
-}
-
-// DefaultUSB returns the machine USB device.
-func DefaultUSB() USBDevice {
-	return machine.USB
 }

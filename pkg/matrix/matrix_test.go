@@ -3,19 +3,17 @@ package matrix
 import (
 	"testing"
 
-	machine "github.com/qmk/qmk_firmware/machine"
 	"github.com/qmk/qmk_firmware/pkg/power"
 	"github.com/qmk/qmk_firmware/pkg/rgb"
-	"machine"
 )
 
 type testPin struct {
 	state bool
 }
 
-func (p *testPin) Configure(machine.PinConfig) {}
-func (p *testPin) Set(b bool)                  { p.state = b }
-func (p *testPin) Get() bool                   { return p.state }
+func (p *testPin) Configure(PinConfig) {}
+func (p *testPin) Set(b bool)          { p.state = b }
+func (p *testPin) Get() bool           { return p.state }
 
 func TestScan(t *testing.T) {
 	rows := []Pin{&testPin{state: true}, &testPin{state: false}}
