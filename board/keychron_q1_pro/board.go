@@ -1,9 +1,10 @@
+//go:build tinygo
+
 package keychron_q1_pro
 
 import (
-	"github.com/qmk/qmk_firmware/device/stm32"
-	machine "github.com/qmk/qmk_firmware/machine"
-  "machine"
+	"device/stm32"
+	"machine"
 )
 
 const (
@@ -76,8 +77,8 @@ func gpioPin(p machine.Pin) uint32 {
 // Init configures the peripherals used on the Keychron Q1 Pro.
 func Init() {
 	// Matrix setup
-	MatrixCol0.Configure(machine.PinConfig{Mode: machine.PinOutputOpenDrain})
-	MatrixCol1.Configure(machine.PinConfig{Mode: machine.PinOutputOpenDrain})
+	MatrixCol0.Configure(machine.PinConfig{Mode: machine.PinOutput})
+	MatrixCol1.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	MatrixRow0.Configure(machine.PinConfig{Mode: machine.PinInput})
 	MatrixRow1.Configure(machine.PinConfig{Mode: machine.PinInput})
 	MatrixRow2.Configure(machine.PinConfig{Mode: machine.PinInput})

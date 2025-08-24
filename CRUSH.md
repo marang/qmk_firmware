@@ -71,3 +71,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: replaced TinyGo machine package to expose STM32L432 peripheral pin constants.
 - work: namespaced machine module to avoid import ambiguity with TinyGo runtime.
 - work: installed TinyGo 0.39.0 and make build fails: undefined peripheral pin constants in std machine package.
+- work: added minimal machine stubs and Makefile copy step to fix TinyGo build.

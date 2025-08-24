@@ -3,15 +3,13 @@ package matrix
 import (
 	"time"
 
-	machine "github.com/qmk/qmk_firmware/machine"
 	"github.com/qmk/qmk_firmware/pkg/debug"
 	"github.com/qmk/qmk_firmware/pkg/power"
-	"machine"
 )
 
 // Pin abstracts a GPIO pin for scanning.
 type Pin interface {
-	Configure(machine.PinConfig)
+	Configure(PinConfig)
 	Set(bool)
 	Get() bool
 }
@@ -42,11 +40,11 @@ type Matrix struct {
 
 // New creates a Matrix and configures the GPIO pins.
 func New(data, clock, latch Pin, rows []Pin, cols int) *Matrix {
-	data.Configure(machine.PinConfig{Mode: machine.PinOutput})
-	clock.Configure(machine.PinConfig{Mode: machine.PinOutput})
-	latch.Configure(machine.PinConfig{Mode: machine.PinOutput})
+	data.Configure(PinConfig{Mode: PinOutput})
+	clock.Configure(PinConfig{Mode: PinOutput})
+	latch.Configure(PinConfig{Mode: PinOutput})
 	for _, r := range rows {
-		r.Configure(machine.PinConfig{Mode: machine.PinInput})
+		r.Configure(PinConfig{Mode: PinInput})
 	}
 	return &Matrix{
 		sr:   shiftRegister{data: data, clock: clock, latch: latch},
