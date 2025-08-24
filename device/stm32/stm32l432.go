@@ -1,6 +1,6 @@
 package stm32
 
-import "runtime/volatile"
+import "github.com/qmk/qmk_firmware/runtime/volatile"
 
 type GPIO_Type struct {
 	MODER  volatile.Register32
