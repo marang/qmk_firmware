@@ -1,12 +1,14 @@
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+    priorityMask: 0xF0
+    systickFrequency: 80000000
+    IRQ -> cpu@0
+
 cpu: CPU.CortexM @ sysbus
     cpuType: "cortex-m4"
-    nvic:
-        priorityMask: 0xF0
-        systickFrequency: 80000000
+    nvic: nvic
 
 flash: Memory.MappedMemory @ sysbus 0x08000000
     size: 0x40000
 
 sram: Memory.MappedMemory @ sysbus 0x20000000
     size: 0x10000
-
