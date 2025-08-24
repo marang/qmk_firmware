@@ -1,5 +1,5 @@
 TINYGO ?= tinygo
-TARGET ?= board/keychron_q1_pro
+TARGET ?= ./board/keychron_q1_pro.json
 OUT_DIR ?= build
 OUT_BIN ?= $(OUT_DIR)/firmware.elf
 

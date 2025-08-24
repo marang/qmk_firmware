@@ -61,3 +61,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: configured labeler workflow permissions and label syncing.
 - work: added scripts label rule and inlined labeler workflow permissions.
 - work: replaced spaces with tabs in Makefile recipes and verified build with Renode.
+- work: set Makefile tinygo target to local board file and added requirements-dev.txt.
