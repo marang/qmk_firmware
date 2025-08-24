@@ -5,6 +5,7 @@
 
 ## Understand the task and decide wise to be efficient
 - Distinguish between updating documentation and code
+- If you add or modify anything, run it yourself and test until it works, investigating issues along the way
 - Code needs to run tests and other tasks
 - Updating a documentation does not need to run tests or compiling or similar executions.
 
@@ -73,3 +74,8 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: installed TinyGo 0.39.0 and make build fails: undefined peripheral pin constants in std machine package.
 - work: added minimal machine stubs and Makefile copy step to fix TinyGo build.
 - work: staged TinyGo root locally during build to avoid system writes.
+- work: fixed Renode platform description syntax to load in simulator.
+- work: removed platform name to satisfy Renode description parser.
+- work: replaced clock frequency with numeric value to satisfy Renode parser.
+- work: simplified STM32L432 Renode platform to generic Cortex-M and verified simulator boot.
+- work: added rule to test changes locally until they work.
