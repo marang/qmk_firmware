@@ -75,3 +75,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: staged TinyGo root locally during build to avoid system writes.
 - work: fixed Renode platform description syntax to load in simulator.
 - work: removed platform name to satisfy Renode description parser.
+- work: replaced clock frequency with numeric value to satisfy Renode parser.
