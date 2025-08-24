@@ -2,6 +2,7 @@
 **Task Notes** after each run.
 
 ## Use `CRUSH-dep.md` to record missing packages, dependencies, or process improvements encountered during tasks.
+- If a command fails because a tool or package is missing, install it and note the requirement here and in `CRUSH-dep.md` so everyone knows what needs to be installed.
 
 ## Understand the task and decide wise to be efficient
 - Distinguish between updating documentation and code
@@ -81,3 +82,6 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: added rule to test changes locally until they work.
 - work: nested NVIC configuration under CPU in STM32L432 Renode platform.
 - work: corrected NVIC definition syntax so Renode loads STM32L432 platform without errors.
+- work: documented rule to log missing dependency requirements.
+- work: xxd command missing when inspecting files; recorded in CRUSH-dep.
+- work: nested NVIC configuration under CPU in STM32L432 Renode platform.
