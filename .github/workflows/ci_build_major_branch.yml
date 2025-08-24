@@ -1,4 +1,4 @@
-name: CI Build Major Branch
+name: "go/main: CI Build Major Branch"
 
 permissions:
   contents: read

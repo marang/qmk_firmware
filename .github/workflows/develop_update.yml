@@ -1,4 +1,4 @@
-name: Update develop after master merge
+name: "go/main: Update develop after master merge"
 
 permissions:
   contents: write
