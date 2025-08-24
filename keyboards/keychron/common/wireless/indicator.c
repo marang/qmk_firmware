@@ -40,6 +40,30 @@
 #    include "eeprom.h"
 #endif
 
+#ifndef RGB_MATRIX_TIMEOUT_INFINITE
+#    define RGB_MATRIX_TIMEOUT_INFINITE 0xFFFFFFFF
+#endif
+#ifndef EECONFIG_RGB_MATRIX
+#    define EECONFIG_RGB_MATRIX ((void *)0)
+#endif
+#ifndef rgb_matrix_disable_timeout_set
+static inline void rgb_matrix_disable_timeout_set(uint32_t time) { (void)time; }
+#endif
+#ifndef rgb_matrix_disable_time_reset
+static inline void rgb_matrix_disable_time_reset(void) {}
+#endif
+#ifndef rgb_matrix_driver_allow_shutdown
+static inline bool rgb_matrix_driver_allow_shutdown(void) { return false; }
+#endif
+#ifndef rgb_matrix_driver_shutdown
+static inline void rgb_matrix_driver_shutdown(void) {}
+#endif
+#ifndef rgb_matrix_driver_exit_shutdown
+static inline void rgb_matrix_driver_exit_shutdown(void) {}
+#endif
+#ifndef rgb_matrix_timeouted
+static inline bool rgb_matrix_timeouted(void) { return false; }
+#endif
 #define HOST_INDEX_MASK 0x0F
 #define HOST_P2P4G 0x10
 #define LED_ON 0x80
@@ -142,7 +166,6 @@ static pin_t p24g_led_pin_list[P24G_HOST_DEVICES_COUNT] = P24G_HOST_LED_PIN_LIST
         if (!rgb_matrix_config.mode) {                                                         \
             eeconfig_update_rgb_matrix_default();                                              \
         }
-#    define LED_DRIVER_ALLOW_SHUTDOWN rgb_matrix_driver_allow_shutdown
 #    define LED_DRIVER_SHUTDOWN rgb_matrix_driver_shutdown
 #    define LED_DRIVER_EXIT_SHUTDOWN rgb_matrix_driver_exit_shutdown
 #    define LED_DRIVER_ENABLE_NOEEPROM rgb_matrix_enable_noeeprom
@@ -153,6 +176,10 @@ static pin_t p24g_led_pin_list[P24G_HOST_DEVICES_COUNT] = P24G_HOST_LED_PIN_LIST
 #endif
 
 bool LED_INDICATORS_KB(void);
+
+#if defined(LED_MATRIX_DRIVER_SHUTDOWN_ENABLE) || defined(RGB_MATRIX_DRIVER_SHUTDOWN_ENABLE)
+bool LED_DRIVER_ALLOW_SHUTDOWN(void);
+#endif
 
 void indicator_init(void) {
     memset(&indicator_config, 0, sizeof(indicator_config));

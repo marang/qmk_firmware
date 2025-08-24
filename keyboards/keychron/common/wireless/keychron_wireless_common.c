@@ -26,6 +26,7 @@
 #    include "keychron_wireless_common.h"
 #    include "keychron_task.h"
 #endif
+#define KEYCHRON_COMMON_SKIP_KEYCODES
 #include "keychron_common.h"
 
 bool firstDisconnect = true;

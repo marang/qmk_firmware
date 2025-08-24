@@ -34,6 +34,9 @@
 #include "battery.h"
 #include "report_buffer.h"
 #include "keychron_common.h"
+#ifndef rgb_matrix_is_driver_shutdown
+static inline bool rgb_matrix_is_driver_shutdown(void) { return false; }
+#endif
 
 extern matrix_row_t matrix[MATRIX_ROWS];
 extern wt_func_t    wireless_transport;
