@@ -5,7 +5,7 @@ package debug
 
 import (
 	"fmt"
-	machine "github.com/qmk/qmk_firmware/machine"
+	"machine"
 )
 
 // Printf writes formatted debug output to the USB CDC interface.
