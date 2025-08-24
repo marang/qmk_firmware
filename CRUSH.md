@@ -65,3 +65,5 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 
 - work: prefixed GitHub Action workflow names with go/main label.
 - work: added Keychron Q1 Pro TinyGo target file.
+- work: ensured run-renode script exports GOROOT and namespaced local device/runtime packages.
+- work: defined STM32L432 peripheral pin constants to resolve TinyGo build errors.

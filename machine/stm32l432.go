@@ -1,6 +1,6 @@
 package machine
 
-import "device/stm32"
+import "github.com/qmk/qmk_firmware/device/stm32"
 
 // Basic support for the STM32L432 microcontroller. This file adds minimal
 // definitions for clocks, GPIO, USB, SPI, and I2C peripherals so that TinyGo
@@ -16,12 +16,51 @@ const (
 	portB
 )
 
+// GPIO pin numbers.
 const (
-	PA0 Pin = portA + 0
-	PA1 Pin = portA + 1
-	PA2 Pin = portA + 2
+	PA0  Pin = portA + 0
+	PA1  Pin = portA + 1
+	PA2  Pin = portA + 2
+	PA3  Pin = portA + 3
+	PA4  Pin = portA + 4
+	PA5  Pin = portA + 5
+	PA6  Pin = portA + 6
+	PA7  Pin = portA + 7
+	PA8  Pin = portA + 8
+	PA9  Pin = portA + 9
+	PA10 Pin = portA + 10
+	PA11 Pin = portA + 11
+	PA12 Pin = portA + 12
+	PA13 Pin = portA + 13
+	PA14 Pin = portA + 14
+	PA15 Pin = portA + 15
+
 	PB0 Pin = portB + 0
 	PB1 Pin = portB + 1
+	PB2 Pin = portB + 2
+	PB3 Pin = portB + 3
+	PB4 Pin = portB + 4
+	PB5 Pin = portB + 5
+	PB6 Pin = portB + 6
+	PB7 Pin = portB + 7
+	PB8 Pin = portB + 8
+	PB9 Pin = portB + 9
+)
+
+// Default peripheral pin assignments.
+const (
+	// SPI1 pins.
+	SPI0_SCK_PIN = PA5
+	SPI0_SDO_PIN = PA6
+	SPI0_SDI_PIN = PA7
+
+	// I2C1 pins.
+	I2C0_SCL_PIN = PB8
+	I2C0_SDA_PIN = PB9
+
+	// USB FS pins.
+	USBCDC_DM_PIN = PA11
+	USBCDC_DP_PIN = PA12
 )
 
 type PinConfig struct {
