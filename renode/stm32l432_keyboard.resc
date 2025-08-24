@@ -1,10 +1,8 @@
-using sysbus
-
 mach create "stm32l432-keyboard"
 machine LoadPlatformDescription @stm32l432_keyboard.repl
 
 # Expose USB HID interface to host
-connector Connect sysbus.usb 1234
+connector Connect sysbus.usb @host.usb
 
 # Simulate a key press via shift register
 log "Pressing key row0-col0"
