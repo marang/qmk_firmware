@@ -67,3 +67,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: added Keychron Q1 Pro TinyGo target file.
 - work: ensured run-renode script exports GOROOT and namespaced local device/runtime packages.
 - work: defined STM32L432 peripheral pin constants to resolve TinyGo build errors.
+- go/feature-uart: stubbed UART and USB serial interfaces for STM32L432.
