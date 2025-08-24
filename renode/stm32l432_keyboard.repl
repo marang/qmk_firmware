@@ -1,5 +1,5 @@
 cpu: CPU.STM32L432 @ sysbus
-    clockFrequency: 80MHz
+    clockFrequency: 80000000
 
 flash: MappedMemory @ sysbus 0x08000000
     size: 256K
