@@ -225,3 +225,5 @@ typedef struct {
 - work: installed dfu-util to provide dfu-suffix; `qmk compile -kb keychron/q1_pro -km default` now succeeds, but `make keychron/q1_pro:renode` still fails (Renode not installed).
 - work: yamllint missing; installed via pip to lint GitHub workflow.
 - work: act CLI unavailable via apt; unable to rerun GitHub Actions locally.
+
+- work: renode package unavailable via apt; make keychron/q1_pro:renode fails (renode: not found).
