@@ -69,3 +69,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: defined STM32L432 peripheral pin constants to resolve TinyGo build errors.
 - go/feature-uart: stubbed UART and USB serial interfaces for STM32L432.
 - work: replaced TinyGo machine package to expose STM32L432 peripheral pin constants.
+- work: namespaced machine module to avoid import ambiguity with TinyGo runtime.

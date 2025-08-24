@@ -1,4 +1,4 @@
-module machine
+module github.com/qmk/qmk_firmware/machine
 
 go 1.24.3
 
