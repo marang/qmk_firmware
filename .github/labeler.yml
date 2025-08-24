@@ -1,3 +1,4 @@
+# Label definitions for PR labeler workflow
 core:
   - changed-files:
     - any-glob-to-any-file:
