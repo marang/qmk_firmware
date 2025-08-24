@@ -2,6 +2,7 @@ name: TinyGo Firmware CI
 
 permissions:
   contents: read
+  actions: write
 
 on:
   push:
@@ -17,9 +18,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - uses: tinygo-org/setup-tinygo@v1
+      - uses: acifani/setup-tinygo@v2
         with:
-          version: 0.28.1
+          tinygo-version: 0.28.1
       - name: Install Renode
         run: |
           sudo apt-get update
@@ -28,7 +29,7 @@ jobs:
         run: |
           RENODE_LOG=hid.log scripts/run-renode.sh
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: renode-results
           path: |
