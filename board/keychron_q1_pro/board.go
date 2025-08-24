@@ -3,6 +3,7 @@ package keychron_q1_pro
 import (
 	"github.com/qmk/qmk_firmware/device/stm32"
 	machine "github.com/qmk/qmk_firmware/machine"
+  "machine"
 )
 
 const (
