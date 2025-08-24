@@ -4,7 +4,7 @@ name: Renode Test
 permissions:
   contents: read
 
-on:
+'on':
   push:
     branches:
       - master
