@@ -49,6 +49,10 @@ CI:
   - changed-files:
     - any-glob-to-any-file:
       - .github/**
+scripts:
+  - changed-files:
+    - any-glob-to-any-file:
+      - scripts/**
 dd:
   - changed-files:
     - any-glob-to-any-file:
