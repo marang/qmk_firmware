@@ -227,3 +227,6 @@ typedef struct {
 - work: act CLI unavailable via apt; unable to rerun GitHub Actions locally.
 
 - work: renode package unavailable via apt; make keychron/q1_pro:renode fails (renode: not found).
+
+- work: renode not installed; `renode --version` command not found.
+- work: installed Renode v1.16.0 from portable tarball; `renode --version` now works.
