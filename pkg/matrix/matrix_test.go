@@ -3,9 +3,9 @@ package matrix
 import (
 	"testing"
 
-	"github.com/qmk/qmk_firmware/machine"
 	"github.com/qmk/qmk_firmware/pkg/power"
 	"github.com/qmk/qmk_firmware/pkg/rgb"
+	"machine"
 )
 
 type testPin struct {
