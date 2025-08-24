@@ -118,7 +118,7 @@ static inline void factory_timer_check(void) {
             clear_keyboard(); // Avoid key being pressed after NKRO state changed
             layer_state_t default_layer_tmp = default_layer_state;
             eeconfig_init();
-            keymap_config.raw = eeconfig_read_keymap();
+            eeconfig_read_keymap(&keymap_config);
             default_layer_set(default_layer_tmp);
 #ifdef DYNAMIC_DEBOUNCE_ENABLE
             debounce_config_reset();

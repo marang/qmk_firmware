@@ -19,6 +19,7 @@
 #include "stdint.h"
 
 // clang-format off
+#ifndef KEYCHRON_COMMON_SKIP_KEYCODES
 enum {
     KC_LOPTN = QK_KB_0,
     KC_ROPTN,
@@ -61,6 +62,7 @@ enum {
 #endif
     NEW_SAFE_RANGE,
 };
+#endif
 
 #ifndef LK_WIRELESS_ENABLE
     #define BT_HST1     KC_TRANS

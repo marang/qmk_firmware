@@ -221,3 +221,5 @@ typedef struct {
 - work: git submodule update --init --recursive required before compiling to fetch dependencies.
 - work: yamllint installed; renode package unavailable via apt-get, and `make keychron/q1_pro:renode` fails (`RGB_MATRIX_LED_COUNT` undeclared, `eeconfig_read_keymap` signature mismatch).
 - work: yamllint missing; installed via pip to run workflow linter.
+- work: qmk lint passes but qmk compile and `make keychron/q1_pro:renode` fail (`LKBT51` SPI/pin macros undefined).
+- work: installed dfu-util to provide dfu-suffix; `qmk compile -kb keychron/q1_pro -km default` now succeeds, but `make keychron/q1_pro:renode` still fails (Renode not installed).

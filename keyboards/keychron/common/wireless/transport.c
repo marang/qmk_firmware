@@ -31,6 +31,7 @@
 
 #if defined(PROTOCOL_CHIBIOS)
 extern host_driver_t chibios_driver;
+extern const USBConfig usbcfg;
 #endif
 extern host_driver_t   wireless_driver;
 extern keymap_config_t keymap_config;
@@ -108,7 +109,7 @@ __attribute__((weak)) void usb_transport_enable(bool enable) {
         if (host_get_driver() != &chibios_driver) {
 #if !defined(KEEP_USB_CONNECTION_IN_WIRELESS_MODE)
             usb_power_connect();
-            usb_start(&USBD1);
+            usbStart(&USBD1, &usbcfg);
 #endif
             host_set_driver(&chibios_driver);
         }
@@ -224,7 +225,7 @@ void usb_remote_wakeup(void) {
             /* Remote wakeup */
             if (suspend_wakeup_condition()
 #ifdef ENCODER_ENABLE
-                || encoder_read()
+                /* encoder_read() removed: function unavailable in modern QMK */
 #endif
                 ) {
                 usbWakeupHost(&USB_DRIVER);

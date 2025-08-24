@@ -11,7 +11,6 @@ SRC += \
      $(WIRELESS_DIR)/wireless_main.c \
      $(WIRELESS_DIR)/transport.c \
      $(WIRELESS_DIR)/lpm.c \
-     $(WIRELESS_DIR)/lpm_stm32f401.c \
      $(WIRELESS_DIR)/battery.c \
      $(WIRELESS_DIR)/bat_level_animation.c \
      $(WIRELESS_DIR)/rtc_timer.c \

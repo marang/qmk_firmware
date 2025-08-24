@@ -44,11 +44,13 @@ enum {
     BT_HST1,
     BT_HST2,
     BT_HST3,
+    P2P4G,
     BAT_LVL,
 #else
     BT_HST1 = KC_TRNS,
     BT_HST2 = KC_TRNS,
     BT_HST3 = KC_TRNS,
+    P2P4G = KC_TRNS,
     BAT_LVL = KC_TRNS,
 #endif
         NEW_SAFE_RANGE

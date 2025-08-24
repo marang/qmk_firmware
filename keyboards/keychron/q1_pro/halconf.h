@@ -24,6 +24,7 @@
 #    define PAL_USE_CALLBACKS TRUE
 #    define HAL_USE_SERIAL TRUE
 #    define HAL_USE_RTC TRUE
+#    define HAL_USE_SPI TRUE
 #endif
 
 #include_next <halconf.h>
