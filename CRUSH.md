@@ -60,3 +60,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: replaced qmk docs --build with qmk generate docs --build and ensured qmk CLI update in docs workflow.
 - work: configured labeler workflow permissions and label syncing.
 - work: added scripts label rule and inlined labeler workflow permissions.
+- work: replaced spaces with tabs in Makefile recipes and verified build with Renode.
