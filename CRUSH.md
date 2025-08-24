@@ -56,3 +56,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: updated TinyGo CI to use acifani/setup-tinygo@v2 and actions/upload-artifact@v4.
 - go/feature-ci-act: documented Docker/act usage and added run-act script verifying artifacts.
 - work: updated docs workflow to use qmk docs build command.
+- go/feature-renode-install: added script to install Renode portable build and updated CI workflow.
