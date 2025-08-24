@@ -53,3 +53,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - work: validated RGB LED count parameter and tests for invalid inputs.
 - work: verified Renode command existence and allowed path override via RENODE.
 - work: ensured run-renode script checks for renode command and supports RENODE override.
+- work: updated TinyGo CI to use acifani/setup-tinygo@v2 and actions/upload-artifact@v4.
