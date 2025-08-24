@@ -68,9 +68,13 @@ class Matrix(IManagedGPIOReceiver, IProvidesGPIO):
         if 0 <= row < self.rows and 0 <= col < self.cols:
             self.keys[row][col] = True
             self._update_rows()
+        else:
+            Log.warning(f"press: invalid key ({row}, {col})")
 
     @export
     def release(self, row: int, col: int):
         if 0 <= row < self.rows and 0 <= col < self.cols:
             self.keys[row][col] = False
             self._update_rows()
+        else:
+            Log.warning(f"release: invalid key ({row}, {col})")

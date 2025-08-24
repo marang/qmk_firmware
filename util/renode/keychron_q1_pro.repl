@@ -40,12 +40,14 @@ matrix: Python.Matrix @ none
     filename: @matrix.py
     rows: 6
     cols: 16
+    # Row lines read by the MCU
     [0] -> gpioPortB@5
     [1] -> gpioPortB@4
     [2] -> gpioPortB@3
     [3] -> gpioPortA@15
     [4] -> gpioPortA@14
     [5] -> gpioPortA@13
+    # Shift-register control lines for column selection
     gpioPortA@7 -> matrix@ds
     gpioPortA@1 -> matrix@shcp
     gpioPortB@0 -> matrix@stcp
