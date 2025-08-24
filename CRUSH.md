@@ -52,3 +52,4 @@ When adding a task note, begin with the current branch name. For example: `go/fe
 - go/feature-hid-usage: populated keycode lookup with full HID usage IDs and added tests.
 - work: validated RGB LED count parameter and tests for invalid inputs.
 - work: verified Renode command existence and allowed path override via RENODE.
+- work: ensured run-renode script checks for renode command and supports RENODE override.
