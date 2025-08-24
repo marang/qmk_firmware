@@ -1,4 +1,4 @@
-package machine // import "github.com/qmk/qmk_firmware/machine"
+package machine // import "machine"
 
 const CPUFrequency = 80_000_000
 type I2C struct{}
