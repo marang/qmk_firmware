@@ -58,6 +58,10 @@ const (
 	I2C0_SCL_PIN = PB8
 	I2C0_SDA_PIN = PB9
 
+	// UART1 pins.
+	UART_TX_PIN = PA9
+	UART_RX_PIN = PA10
+
 	// USB FS pins.
 	USBCDC_DM_PIN = PA11
 	USBCDC_DP_PIN = PA12
@@ -129,6 +133,15 @@ func (p Pin) Get() bool {
 	return port.IDR.HasBits(mask)
 }
 
+type UART struct{}
+
+var UART0 UART
+
+type UARTConfig struct{}
+
+func (UART) Configure(cfg UARTConfig) {
+}
+
 type SPI struct{}
 
 var SPI0 SPI
@@ -151,19 +164,27 @@ func (I2C) Configure(cfg I2CConfig) {
 	stm32.I2C1.CR1.SetBits(1)
 }
 
-type USBCDC struct{}
+type Serialer interface {
+	Configure()
+	Write([]byte) (int, error)
+}
 
-var USB USBCDC
+type USBCDCType struct{}
 
-func (USBCDC) Configure() {
+var (
+	USB    USBCDCType
+	USBCDC Serialer = USB
+)
+
+func (USBCDCType) Configure() {
 	stm32.RCC.APB1ENR1.SetBits(stm32.RCC_APB1ENR1_USBFSEN)
 }
 
-func (USBCDC) Write(b []byte) (int, error) {
-	for _, c := range b {
+func (USBCDCType) Write(buf []byte) (int, error) {
+	for _, c := range buf {
 		stm32.USBFS.EP0R.Set(uint32(c))
 	}
-	return len(b), nil
+	return len(buf), nil
 }
 
 func init() {
