@@ -223,3 +223,5 @@ typedef struct {
 - work: yamllint missing; installed via pip to run workflow linter.
 - work: qmk lint passes but qmk compile and `make keychron/q1_pro:renode` fail (`LKBT51` SPI/pin macros undefined).
 - work: installed dfu-util to provide dfu-suffix; `qmk compile -kb keychron/q1_pro -km default` now succeeds, but `make keychron/q1_pro:renode` still fails (Renode not installed).
+- work: yamllint missing; installed via pip to lint GitHub workflow.
+- work: act CLI unavailable via apt; unable to rerun GitHub Actions locally.
